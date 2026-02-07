@@ -1,7 +1,7 @@
 /******************************************************************************
- * Họ và tên: [ĐIỀN TÊN TẠI ĐÂY]
- * MSSV:      [ĐIỀN MSSV TẠI ĐÂY]
- * Lớp:       [ĐIỀN LỚP TẠI ĐÂY]
+ * Họ và tên: [Huỳnh Việt Tiến]
+ * MSSV:      [PS47459]
+ * Lớp:       [CS21301]
  *****************************************************************************/
 
 // Tạo file asm2.c và hoàn thiện nội dung Assignment từ nội dung file asm1.c
@@ -21,6 +21,48 @@
 // Viết chương trình C thực hiện các chức năng trên
 
 #include <stdio.h>
+#include <math.h>
+
+// ===== CHỨC NĂNG 1: KIỂM TRA SỐ =====
+void chucNang1() {
+    float x;
+    printf("Nhap so x: ");
+    scanf("%f", &x);
+
+    // Kiểm tra số nguyên
+    if (x == (int)x) {
+        int n = (int)x; // ép kiểu float -> int
+        printf("So %d la so nguyen.\n", n);
+
+        // Kiểm tra số nguyên tố
+        int dem = 0;
+        if (n < 2) {
+            printf("Khong phai so nguyen to.\n");
+        } else {
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    dem++;
+                }
+            }
+            if (dem == 2) {
+                printf("La so nguyen to.\n");
+            } else {
+                printf("Khong phai so nguyen to.\n");
+            }
+        }
+
+        // Kiểm tra số chính phương
+        int can = sqrt(n);
+        if (can * can == n) {
+            printf("La so chinh phuong.\n");
+        } else {
+            printf("Khong phai so chinh phuong.\n");
+        }
+
+    } else {
+        printf("So %.2f khong phai la so nguyen.\n", x);
+    }
+}
 
 int main() {
     int chonChucNang;
@@ -43,43 +85,34 @@ int main() {
 
         switch (chonChucNang) {
             case 1:
-                // Gọi hàm kiểm tra số nguyên
                 printf("DA CHON CHUC NANG 1: KIEM TRA SO NGUYEN\n");
+                chucNang1(); // GỌI CHỨC NĂNG 1
                 break;
             case 2:
-                // Gọi hàm tìm Ước số chung và bội số chung
                 printf("DA CHON CHUC NANG 2: TIM UOC SO CHUNG VA BOI SO CHUNG CUA 2 SO\n");
                 break;
             case 3:
-                // Gọi hàm tính tiền cho quán Karaoke
                 printf("DA CHON CHUC NANG 3: TINH TIEN CHO QUAN KARAOKE\n");
                 break;
             case 4:
-                // Gọi hàm tính tiền điện
                 printf("DA CHON CHUC NANG 4: TINH TIEN DIEN\n");
                 break;
             case 5:
-                // Gọi hàm đổi tiền
                 printf("DA CHON CHUC NANG 5: DOI TIEN\n");
                 break;
             case 6:
-                // Gọi hàm tính lãi suất vay ngân hàng
                 printf("DA CHON CHUC NANG 6: TINH LAI SUAT VAY NGAN HANG VAY TRA GOP\n");
                 break;
             case 7:
-                // Gọi hàm vay tiền mua xe
                 printf("DA CHON CHUC NANG 7: VAY TIEN MUA XE\n");
                 break;
             case 8:
-                // Gọi hàm sắp xếp thông tin sinh viên
                 printf("DA CHON CHUC NANG 8: SAP XEP THONG TIN SINH VIEN\n");
                 break;
             case 9:
-                // Gọi hàm game FPOLY-LOTT
                 printf("DA CHON CHUC NANG 9: GAME FPOLY-LOTT\n");
                 break;
             case 10:
-                // Gọi hàm tính toán phân số
                 printf("DA CHON CHUC NANG 10: TINH TOAN PHAN SO\n");
                 break;
             case 0:
